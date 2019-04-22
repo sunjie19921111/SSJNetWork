@@ -1,0 +1,6 @@
+framework module SSJNetWork {
+  umbrella header "SSJNetWork-umbrella.h"
+
+  export *
+  module * { export * }
+}

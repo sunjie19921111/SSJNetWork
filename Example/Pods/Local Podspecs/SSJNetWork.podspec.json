@@ -1,0 +1,22 @@
+{
+  "name": "SSJNetWork",
+  "version": "0.1.0",
+  "summary": "A short description of SSJNetWork.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/15220092519@163.com/SSJNetWork",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "15220092519@163.com": "15220092519@163.com"
+  },
+  "source": {
+    "git": "https://github.com/15220092519@163.com/SSJNetWork.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SSJNetWork/Classes/**/*"
+}

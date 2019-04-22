@@ -14,7 +14,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* SSJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* SSJAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* SSJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* SSJViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -22,8 +21,29 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
-		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		E7250DF5CA7BA4A2AF25995C /* Pods_SSJNetWork_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6E607D43337853C9440FC3 /* Pods_SSJNetWork_Tests.framework */; };
+		A8724B56226DC090002E8B0C /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = A8724B50226DC090002E8B0C /* .gitkeep */; };
+		A8724B57226DC090002E8B0C /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = A8724B55226DC090002E8B0C /* .gitkeep */; };
+		A8724B60226DC0AE002E8B0C /* NEHTTPEyeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B58226DC0AE002E8B0C /* NEHTTPEyeDetailViewController.m */; };
+		A8724B61226DC0AE002E8B0C /* NEHTTPEyeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B59226DC0AE002E8B0C /* NEHTTPEyeViewController.m */; };
+		A8724B63226DC0AE002E8B0C /* NEHTTPModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B5F226DC0AE002E8B0C /* NEHTTPModelManager.m */; };
+		A8724B66226DC0BC002E8B0C /* SSJMemCacheDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B65226DC0BC002E8B0C /* SSJMemCacheDataCenter.m */; };
+		A8724B82226DC1B7002E8B0C /* NSDictionary+SSJNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B81226DC1B7002E8B0C /* NSDictionary+SSJNetWork.m */; };
+		A8724B85226DC1DB002E8B0C /* NSString+SSJNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B84226DC1DB002E8B0C /* NSString+SSJNetWork.m */; };
+		A8724B88226DC213002E8B0C /* UIViewController+SSJNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B87226DC213002E8B0C /* UIViewController+SSJNetWork.m */; };
+		A8724B8B226DC232002E8B0C /* UINavigationController+SSJNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B8A226DC232002E8B0C /* UINavigationController+SSJNetWork.m */; };
+		A8724B8E226DC300002E8B0C /* SSJApiProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B8D226DC300002E8B0C /* SSJApiProxy.m */; };
+		A8724B91226DC315002E8B0C /* SSJHTTPSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B90226DC315002E8B0C /* SSJHTTPSessionModel.m */; };
+		A8724B94226DC328002E8B0C /* SSJNetWorkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B93226DC328002E8B0C /* SSJNetWorkConfig.m */; };
+		A8724B97226DC34E002E8B0C /* SSJApiRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B96226DC34E002E8B0C /* SSJApiRequestManager.m */; };
+		A8724B9D226DC383002E8B0C /* SSJNetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724B9C226DC383002E8B0C /* SSJNetWorkHelper.m */; };
+		A8724BA3226DC402002E8B0C /* SSJNetworkRequestConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724BA2226DC402002E8B0C /* SSJNetworkRequestConfig.m */; };
+		A8724BA6226DC60D002E8B0C /* SSJURLRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724BA5226DC60D002E8B0C /* SSJURLRequestManager.m */; };
+		A8724BA9226DCB00002E8B0C /* SSJNetWorkLogHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724BA8226DCB00002E8B0C /* SSJNetWorkLogHelper.m */; };
+		A8724BB8226DCE4E002E8B0C /* SSJHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724BAC226DCE4E002E8B0C /* SSJHomeViewController.m */; };
+		A8724BB9226DCE4E002E8B0C /* SSJHomeRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724BB1226DCE4E002E8B0C /* SSJHomeRequestService.m */; };
+		A8724BBA226DCE4E002E8B0C /* NSObject+SSJNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724BB6226DCE4E002E8B0C /* NSObject+SSJNetWork.m */; };
+		A8724BBE226DCEF5002E8B0C /* SSJRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724BBD226DCEF5002E8B0C /* SSJRequestService.m */; };
+		A8724BC2226DD15A002E8B0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8724BC1226DD15A002E8B0C /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +58,7 @@
 
 /* Begin PBXFileReference section */
 		096F933396571AC4C955BF45 /* Pods-SSJNetWork_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSJNetWork_Example.debug.xcconfig"; path = "Target Support Files/Pods-SSJNetWork_Example/Pods-SSJNetWork_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		31B080C79B0D159DA0074924 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		31B080C79B0D159DA0074924 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		50101D11FB7C638DED43144B /* Pods_SSJNetWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSJNetWork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C10CF66FC77A576096A4499 /* Pods-SSJNetWork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSJNetWork_Example.release.xcconfig"; path = "Target Support Files/Pods-SSJNetWork_Example/Pods-SSJNetWork_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SSJNetWork_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSJNetWork_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,8 +71,6 @@
 		6003F59B195388D20070C39A /* SSJNetWork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSJNetWork-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* SSJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* SSJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* SSJViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* SSJViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* SSJNetWork_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSJNetWork_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -61,12 +79,54 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7553320849465EF32EA1BCDA /* Pods-SSJNetWork_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSJNetWork_Tests.release.xcconfig"; path = "Target Support Files/Pods-SSJNetWork_Tests/Pods-SSJNetWork_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		7832D190966A544F7D141C69 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		78A0D04FBFACF847EC9D9A3B /* SSJNetWork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SSJNetWork.podspec; path = ../SSJNetWork.podspec; sourceTree = "<group>"; };
+		7832D190966A544F7D141C69 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		78A0D04FBFACF847EC9D9A3B /* SSJNetWork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SSJNetWork.podspec; path = ../SSJNetWork.podspec; sourceTree = "<group>"; };
 		7C6E607D43337853C9440FC3 /* Pods_SSJNetWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSJNetWork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F493F9CCF960A21AF74CD1C9 /* Pods-SSJNetWork_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSJNetWork_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SSJNetWork_Tests/Pods-SSJNetWork_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8724B50226DC090002E8B0C /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		A8724B55226DC090002E8B0C /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		A8724B58226DC0AE002E8B0C /* NEHTTPEyeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEHTTPEyeDetailViewController.m; sourceTree = "<group>"; };
+		A8724B59226DC0AE002E8B0C /* NEHTTPEyeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEHTTPEyeViewController.m; sourceTree = "<group>"; };
+		A8724B5B226DC0AE002E8B0C /* NEHTTPModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEHTTPModelManager.h; sourceTree = "<group>"; };
+		A8724B5D226DC0AE002E8B0C /* NEHTTPEyeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEHTTPEyeDetailViewController.h; sourceTree = "<group>"; };
+		A8724B5E226DC0AE002E8B0C /* NEHTTPEyeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEHTTPEyeViewController.h; sourceTree = "<group>"; };
+		A8724B5F226DC0AE002E8B0C /* NEHTTPModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEHTTPModelManager.m; sourceTree = "<group>"; };
+		A8724B64226DC0BC002E8B0C /* SSJMemCacheDataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSJMemCacheDataCenter.h; sourceTree = "<group>"; };
+		A8724B65226DC0BC002E8B0C /* SSJMemCacheDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSJMemCacheDataCenter.m; sourceTree = "<group>"; };
+		A8724B7F226DC18E002E8B0C /* SSJNetworkingDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSJNetworkingDefines.h; sourceTree = "<group>"; };
+		A8724B80226DC1B7002E8B0C /* NSDictionary+SSJNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SSJNetWork.h"; sourceTree = "<group>"; };
+		A8724B81226DC1B7002E8B0C /* NSDictionary+SSJNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SSJNetWork.m"; sourceTree = "<group>"; };
+		A8724B83226DC1DA002E8B0C /* NSString+SSJNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SSJNetWork.h"; sourceTree = "<group>"; };
+		A8724B84226DC1DB002E8B0C /* NSString+SSJNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+SSJNetWork.m"; sourceTree = "<group>"; };
+		A8724B86226DC213002E8B0C /* UIViewController+SSJNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SSJNetWork.h"; sourceTree = "<group>"; };
+		A8724B87226DC213002E8B0C /* UIViewController+SSJNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SSJNetWork.m"; sourceTree = "<group>"; };
+		A8724B89226DC232002E8B0C /* UINavigationController+SSJNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+SSJNetWork.h"; sourceTree = "<group>"; };
+		A8724B8A226DC232002E8B0C /* UINavigationController+SSJNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+SSJNetWork.m"; sourceTree = "<group>"; };
+		A8724B8C226DC300002E8B0C /* SSJApiProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJApiProxy.h; sourceTree = "<group>"; };
+		A8724B8D226DC300002E8B0C /* SSJApiProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJApiProxy.m; sourceTree = "<group>"; };
+		A8724B8F226DC315002E8B0C /* SSJHTTPSessionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJHTTPSessionModel.h; sourceTree = "<group>"; };
+		A8724B90226DC315002E8B0C /* SSJHTTPSessionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJHTTPSessionModel.m; sourceTree = "<group>"; };
+		A8724B92226DC328002E8B0C /* SSJNetWorkConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJNetWorkConfig.h; sourceTree = "<group>"; };
+		A8724B93226DC328002E8B0C /* SSJNetWorkConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJNetWorkConfig.m; sourceTree = "<group>"; };
+		A8724B95226DC34E002E8B0C /* SSJApiRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJApiRequestManager.h; sourceTree = "<group>"; };
+		A8724B96226DC34E002E8B0C /* SSJApiRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJApiRequestManager.m; sourceTree = "<group>"; };
+		A8724B9B226DC383002E8B0C /* SSJNetWorkHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJNetWorkHelper.h; sourceTree = "<group>"; };
+		A8724B9C226DC383002E8B0C /* SSJNetWorkHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJNetWorkHelper.m; sourceTree = "<group>"; };
+		A8724BA1226DC402002E8B0C /* SSJNetworkRequestConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJNetworkRequestConfig.h; sourceTree = "<group>"; };
+		A8724BA2226DC402002E8B0C /* SSJNetworkRequestConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJNetworkRequestConfig.m; sourceTree = "<group>"; };
+		A8724BA4226DC60D002E8B0C /* SSJURLRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJURLRequestManager.h; sourceTree = "<group>"; };
+		A8724BA5226DC60D002E8B0C /* SSJURLRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJURLRequestManager.m; sourceTree = "<group>"; };
+		A8724BA7226DCB00002E8B0C /* SSJNetWorkLogHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJNetWorkLogHelper.h; sourceTree = "<group>"; };
+		A8724BA8226DCB00002E8B0C /* SSJNetWorkLogHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJNetWorkLogHelper.m; sourceTree = "<group>"; };
+		A8724BAC226DCE4E002E8B0C /* SSJHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSJHomeViewController.m; sourceTree = "<group>"; };
+		A8724BAD226DCE4E002E8B0C /* SSJHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSJHomeViewController.h; sourceTree = "<group>"; };
+		A8724BB1226DCE4E002E8B0C /* SSJHomeRequestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSJHomeRequestService.m; sourceTree = "<group>"; };
+		A8724BB2226DCE4E002E8B0C /* SSJHomeRequestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSJHomeRequestService.h; sourceTree = "<group>"; };
+		A8724BB4226DCE4E002E8B0C /* NSObject+SSJNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SSJNetWork.h"; sourceTree = "<group>"; };
+		A8724BB6226DCE4E002E8B0C /* NSObject+SSJNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SSJNetWork.m"; sourceTree = "<group>"; };
+		A8724BBC226DCEF5002E8B0C /* SSJRequestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJRequestService.h; sourceTree = "<group>"; };
+		A8724BBD226DCEF5002E8B0C /* SSJRequestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJRequestService.m; sourceTree = "<group>"; };
+		A8724BC0226DCF3B002E8B0C /* SSJNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSJNetWork.h; path = ../../../../../SJNetWork/SJNetWork/Classes/SSJNetWork.h; sourceTree = "<group>"; };
+		A8724BC1226DD15A002E8B0C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +148,6 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				E7250DF5CA7BA4A2AF25995C /* Pods_SSJNetWork_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,13 +191,12 @@
 		6003F593195388D20070C39A /* Example for SSJNetWork */ = {
 			isa = PBXGroup;
 			children = (
+				A8724B4C226DC090002E8B0C /* SSJNetWork */,
 				6003F59C195388D20070C39A /* SSJAppDelegate.h */,
 				6003F59D195388D20070C39A /* SSJAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* SSJViewController.h */,
-				6003F5A6195388D20070C39A /* SSJViewController.m */,
-				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
+				A8724BC1226DD15A002E8B0C /* Main.storyboard */,
+				A8724BAA226DCE4E002E8B0C /* Home */,
+				A8724BB3226DCE4E002E8B0C /* HTTPService */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for SSJNetWork";
@@ -148,6 +206,8 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
+				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F595195388D20070C39A /* SSJNetWork-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -190,11 +250,161 @@
 			children = (
 				096F933396571AC4C955BF45 /* Pods-SSJNetWork_Example.debug.xcconfig */,
 				5C10CF66FC77A576096A4499 /* Pods-SSJNetWork_Example.release.xcconfig */,
-				F493F9CCF960A21AF74CD1C9 /* Pods-SSJNetWork_Tests.debug.xcconfig */,
-				7553320849465EF32EA1BCDA /* Pods-SSJNetWork_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A8724B4C226DC090002E8B0C /* SSJNetWork */ = {
+			isa = PBXGroup;
+			children = (
+				A8724B4D226DC090002E8B0C /* Classes */,
+				A8724B54226DC090002E8B0C /* Assets */,
+			);
+			path = SSJNetWork;
+			sourceTree = "<group>";
+		};
+		A8724B4D226DC090002E8B0C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A8724BC0226DCF3B002E8B0C /* SSJNetWork.h */,
+				A8724B4E226DC090002E8B0C /* Catagory */,
+				A8724B4F226DC090002E8B0C /* Cache */,
+				A8724B50226DC090002E8B0C /* .gitkeep */,
+				A8724B51226DC090002E8B0C /* Support Files */,
+				A8724B52226DC090002E8B0C /* Log */,
+				A8724B53226DC090002E8B0C /* Request */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A8724B4E226DC090002E8B0C /* Catagory */ = {
+			isa = PBXGroup;
+			children = (
+				A8724B80226DC1B7002E8B0C /* NSDictionary+SSJNetWork.h */,
+				A8724B81226DC1B7002E8B0C /* NSDictionary+SSJNetWork.m */,
+				A8724B83226DC1DA002E8B0C /* NSString+SSJNetWork.h */,
+				A8724B84226DC1DB002E8B0C /* NSString+SSJNetWork.m */,
+				A8724B86226DC213002E8B0C /* UIViewController+SSJNetWork.h */,
+				A8724B87226DC213002E8B0C /* UIViewController+SSJNetWork.m */,
+				A8724B89226DC232002E8B0C /* UINavigationController+SSJNetWork.h */,
+				A8724B8A226DC232002E8B0C /* UINavigationController+SSJNetWork.m */,
+			);
+			path = Catagory;
+			sourceTree = "<group>";
+		};
+		A8724B4F226DC090002E8B0C /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				A8724B64226DC0BC002E8B0C /* SSJMemCacheDataCenter.h */,
+				A8724B65226DC0BC002E8B0C /* SSJMemCacheDataCenter.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		A8724B51226DC090002E8B0C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A8724B7F226DC18E002E8B0C /* SSJNetworkingDefines.h */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		A8724B52226DC090002E8B0C /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				A8724B5D226DC0AE002E8B0C /* NEHTTPEyeDetailViewController.h */,
+				A8724B58226DC0AE002E8B0C /* NEHTTPEyeDetailViewController.m */,
+				A8724B5E226DC0AE002E8B0C /* NEHTTPEyeViewController.h */,
+				A8724B59226DC0AE002E8B0C /* NEHTTPEyeViewController.m */,
+				A8724B5B226DC0AE002E8B0C /* NEHTTPModelManager.h */,
+				A8724B5F226DC0AE002E8B0C /* NEHTTPModelManager.m */,
+				A8724BA7226DCB00002E8B0C /* SSJNetWorkLogHelper.h */,
+				A8724BA8226DCB00002E8B0C /* SSJNetWorkLogHelper.m */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		A8724B53226DC090002E8B0C /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				A8724B9B226DC383002E8B0C /* SSJNetWorkHelper.h */,
+				A8724B9C226DC383002E8B0C /* SSJNetWorkHelper.m */,
+				A8724B8C226DC300002E8B0C /* SSJApiProxy.h */,
+				A8724B8D226DC300002E8B0C /* SSJApiProxy.m */,
+				A8724B8F226DC315002E8B0C /* SSJHTTPSessionModel.h */,
+				A8724B90226DC315002E8B0C /* SSJHTTPSessionModel.m */,
+				A8724B92226DC328002E8B0C /* SSJNetWorkConfig.h */,
+				A8724B93226DC328002E8B0C /* SSJNetWorkConfig.m */,
+				A8724B95226DC34E002E8B0C /* SSJApiRequestManager.h */,
+				A8724B96226DC34E002E8B0C /* SSJApiRequestManager.m */,
+				A8724BA1226DC402002E8B0C /* SSJNetworkRequestConfig.h */,
+				A8724BA2226DC402002E8B0C /* SSJNetworkRequestConfig.m */,
+				A8724BA4226DC60D002E8B0C /* SSJURLRequestManager.h */,
+				A8724BA5226DC60D002E8B0C /* SSJURLRequestManager.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		A8724B54226DC090002E8B0C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A8724B55226DC090002E8B0C /* .gitkeep */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		A8724BAA226DCE4E002E8B0C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A8724BAB226DCE4E002E8B0C /* Controller */,
+				A8724BAE226DCE4E002E8B0C /* Model */,
+				A8724BAF226DCE4E002E8B0C /* View */,
+				A8724BB0226DCE4E002E8B0C /* Service */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A8724BAB226DCE4E002E8B0C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A8724BAD226DCE4E002E8B0C /* SSJHomeViewController.h */,
+				A8724BAC226DCE4E002E8B0C /* SSJHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A8724BAE226DCE4E002E8B0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A8724BAF226DCE4E002E8B0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A8724BB0226DCE4E002E8B0C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A8724BB1226DCE4E002E8B0C /* SSJHomeRequestService.m */,
+				A8724BB2226DCE4E002E8B0C /* SSJHomeRequestService.h */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A8724BB3226DCE4E002E8B0C /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				A8724BB6226DCE4E002E8B0C /* NSObject+SSJNetWork.m */,
+				A8724BB4226DCE4E002E8B0C /* NSObject+SSJNetWork.h */,
+				A8724BBC226DCEF5002E8B0C /* SSJRequestService.h */,
+				A8724BBD226DCEF5002E8B0C /* SSJRequestService.m */,
+			);
+			path = HTTPService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,7 +433,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "SSJNetWork_Tests" */;
 			buildPhases = (
-				0EE4CD1BD641B017DEB9D3C1 /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
@@ -258,6 +467,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -277,8 +487,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				A8724B56226DC090002E8B0C /* .gitkeep in Resources */,
+				A8724B57226DC090002E8B0C /* .gitkeep in Resources */,
+				A8724BC2226DD15A002E8B0C /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -295,28 +507,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0EE4CD1BD641B017DEB9D3C1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SSJNetWork_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A0C19C9BBDE2589FB003E5B2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,13 +516,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SSJNetWork_Example/Pods-SSJNetWork_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SSJNetWork/SSJNetWork.framework",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSJNetWork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -368,9 +564,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8724B97226DC34E002E8B0C /* SSJApiRequestManager.m in Sources */,
+				A8724B8E226DC300002E8B0C /* SSJApiProxy.m in Sources */,
+				A8724B82226DC1B7002E8B0C /* NSDictionary+SSJNetWork.m in Sources */,
+				A8724B66226DC0BC002E8B0C /* SSJMemCacheDataCenter.m in Sources */,
+				A8724B8B226DC232002E8B0C /* UINavigationController+SSJNetWork.m in Sources */,
+				A8724BB9226DCE4E002E8B0C /* SSJHomeRequestService.m in Sources */,
+				A8724BBA226DCE4E002E8B0C /* NSObject+SSJNetWork.m in Sources */,
+				A8724B88226DC213002E8B0C /* UIViewController+SSJNetWork.m in Sources */,
+				A8724B61226DC0AE002E8B0C /* NEHTTPEyeViewController.m in Sources */,
+				A8724B9D226DC383002E8B0C /* SSJNetWorkHelper.m in Sources */,
+				A8724BA6226DC60D002E8B0C /* SSJURLRequestManager.m in Sources */,
 				6003F59E195388D20070C39A /* SSJAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* SSJViewController.m in Sources */,
+				A8724B94226DC328002E8B0C /* SSJNetWorkConfig.m in Sources */,
+				A8724B91226DC315002E8B0C /* SSJHTTPSessionModel.m in Sources */,
+				A8724BA9226DCB00002E8B0C /* SSJNetWorkLogHelper.m in Sources */,
+				A8724BBE226DCEF5002E8B0C /* SSJRequestService.m in Sources */,
+				A8724B63226DC0AE002E8B0C /* NEHTTPModelManager.m in Sources */,
+				A8724BB8226DCE4E002E8B0C /* SSJHomeViewController.m in Sources */,
+				A8724B85226DC1DB002E8B0C /* NSString+SSJNetWork.m in Sources */,
+				A8724B60226DC0AE002E8B0C /* NEHTTPEyeDetailViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				A8724BA3226DC402002E8B0C /* SSJNetworkRequestConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,7 +740,6 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F493F9CCF960A21AF74CD1C9 /* Pods-SSJNetWork_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -549,7 +763,6 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7553320849465EF32EA1BCDA /* Pods-SSJNetWork_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
