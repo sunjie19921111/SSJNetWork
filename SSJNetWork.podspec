@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
 
   s.description      = '对AFNetWorking 二次封装 实现自动取消网络请求，网络请求缓冲，网络请求日志详细打印'
 
-  s.homepage         = 'https://github.com/sunjie19921111/SSJNetWrok'
+  s.homepage         = 'https://github.com/sunjie19921111/SSJNetWork'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '15220092519@163.com' => '15220092519@163.com' }
-  s.source           = { :git => 'https://github.com/sunjie19921111/SSJNetWrok.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/sunjie19921111/SSJNetWork.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'

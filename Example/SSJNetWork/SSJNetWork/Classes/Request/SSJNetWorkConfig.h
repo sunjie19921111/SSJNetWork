@@ -26,16 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readwrite,nonatomic, assign) NSInteger countLimit;
 
 /**
- Whether log printing is enabled
- */
-@property (readwrite,nonatomic, assign) BOOL dubugLogeEnable;
-
-/**
- Whether SQLLog is enabled
- */
-@property (readwrite,nonatomic, assign) BOOL SQLLogEnable;
-
-/**
  Network timeout
  */
 @property (readwrite,nonatomic, assign) NSInteger timeoutInterval;
@@ -54,6 +44,17 @@ NS_ASSUME_NONNULL_BEGIN
  Request header
  */
 @property (readwrite, nonatomic, strong) NSMutableDictionary *mutableHTTPRequestHeaders;
+
+
+/**
+ Whether log printing is enabled
+ */
+@property (readwrite,nonatomic, assign) BOOL dubugLogeEnable;
+
+/**
+ Whether SQLLog is enabled
+ */
+@property (readwrite,nonatomic, assign) BOOL SQLLogEnable;
 
 /**
  log password

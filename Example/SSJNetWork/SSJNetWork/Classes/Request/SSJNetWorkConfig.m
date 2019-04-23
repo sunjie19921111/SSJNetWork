@@ -33,11 +33,11 @@
         _cacheTimeInSeconds = @"3";
         _memoryCacheVersion = @"1";
         _countLimit = 5;
-        _dubugLogeEnable = YES;
         _mutableHTTPRequestHeaders = [NSMutableDictionary dictionaryWithCapacity:1];
         _ne_sqlitePassword = @"SJNetwork";
         _ne_saveRequestMaxCount = 300;
         _SQLLogEnable = YES;
+        _dubugLogeEnable = YES;
         
         _sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
         _sessionManager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:self.sessionConfiguration];

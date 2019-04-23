@@ -44,6 +44,7 @@
 		A8724BBA226DCE4E002E8B0C /* NSObject+SSJNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724BB6226DCE4E002E8B0C /* NSObject+SSJNetWork.m */; };
 		A8724BBE226DCEF5002E8B0C /* SSJRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724BBD226DCEF5002E8B0C /* SSJRequestService.m */; };
 		A8724BC2226DD15A002E8B0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8724BC1226DD15A002E8B0C /* Main.storyboard */; };
+		A8724BC5226EFBFD002E8B0C /* SSJLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8724BC4226EFBFD002E8B0C /* SSJLogManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,8 @@
 		A8724BBD226DCEF5002E8B0C /* SSJRequestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJRequestService.m; sourceTree = "<group>"; };
 		A8724BC0226DCF3B002E8B0C /* SSJNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSJNetWork.h; path = ../../../../../SJNetWork/SJNetWork/Classes/SSJNetWork.h; sourceTree = "<group>"; };
 		A8724BC1226DD15A002E8B0C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A8724BC3226EFBFD002E8B0C /* SSJLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSJLogManager.h; sourceTree = "<group>"; };
+		A8724BC4226EFBFD002E8B0C /* SSJLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSJLogManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +323,8 @@
 				A8724B5F226DC0AE002E8B0C /* NEHTTPModelManager.m */,
 				A8724BA7226DCB00002E8B0C /* SSJNetWorkLogHelper.h */,
 				A8724BA8226DCB00002E8B0C /* SSJNetWorkLogHelper.m */,
+				A8724BC3226EFBFD002E8B0C /* SSJLogManager.h */,
+				A8724BC4226EFBFD002E8B0C /* SSJLogManager.m */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -577,6 +582,7 @@
 				A8724BA6226DC60D002E8B0C /* SSJURLRequestManager.m in Sources */,
 				6003F59E195388D20070C39A /* SSJAppDelegate.m in Sources */,
 				A8724B94226DC328002E8B0C /* SSJNetWorkConfig.m in Sources */,
+				A8724BC5226EFBFD002E8B0C /* SSJLogManager.m in Sources */,
 				A8724B91226DC315002E8B0C /* SSJHTTPSessionModel.m in Sources */,
 				A8724BA9226DCB00002E8B0C /* SSJNetWorkLogHelper.m in Sources */,
 				A8724BBE226DCEF5002E8B0C /* SSJRequestService.m in Sources */,
