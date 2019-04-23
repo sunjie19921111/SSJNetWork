@@ -50,13 +50,13 @@
     return self;
 }
 
-- (void)sj_addObjectRequestModel:(SSJNetWorkRequestModel *)model {
+- (void)ssj_addObjectRequestModel:(SSJNetWorkRequestModel *)model {
     @synchronized (self) {
         [_requestIds addObject:model];
     }
 }
 
-- (void)sj_removeObjectRequestID:(NSString *)requestID {
+- (void)ssj_removeObjectRequestID:(NSString *)requestID {
     @synchronized (self) {
         __block SSJNetWorkRequestModel *model = nil;
         [_requestIds enumerateObjectsUsingBlock:^(SSJNetWorkRequestModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -71,7 +71,7 @@
     }
 }
 
--(SSJNetWorkRequestModel *)sj_valueForKeyRequestID:(NSString *)requestID {
+-(SSJNetWorkRequestModel *)ssj_valueForKeyRequestID:(NSString *)requestID {
     @synchronized (self) {
         __block SSJNetWorkRequestModel *model = nil;
         [_requestIds enumerateObjectsUsingBlock:^(SSJNetWorkRequestModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -83,7 +83,7 @@
     }
 }
 
-- (void)sj_cancelObjectRequestID:(NSString *)requestID {
+- (void)ssj_cancelObjectRequestID:(NSString *)requestID {
     @synchronized (self) {
         __block SSJNetWorkRequestModel *model = nil;
         [_requestIds enumerateObjectsUsingBlock:^(SSJNetWorkRequestModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -99,7 +99,7 @@
     }
 }
 
-- (void)sj_cancelObjectClassName:(NSString *)className {
+- (void)ssj_cancelObjectClassName:(NSString *)className {
     @synchronized (self) {
         NSMutableArray *classRequests = [NSMutableArray arrayWithCapacity:1];
         [_requestIds enumerateObjectsUsingBlock:^(SSJNetWorkRequestModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -114,7 +114,7 @@
     }
 }
 
-- (void)sj_cancelAllRequest {
+- (void)ssj_cancelAllRequest {
     [self.requestIds removeAllObjects];
 }
 

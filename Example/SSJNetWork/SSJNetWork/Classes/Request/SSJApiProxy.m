@@ -63,10 +63,10 @@
     __block NSURLSessionDataTask *dataTask =  [manager dataTaskWithRequest:mutableRequest
                                                          completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
                                                              NSString *requestID = dataTask.currentRequest.URL.absoluteString;
-                                                             SSJNetWorkRequestModel *requestModel = [self.requestManager sj_valueForKeyRequestID:requestID];
+                                                             SSJNetWorkRequestModel *requestModel = [self.requestManager ssj_valueForKeyRequestID:requestID];
                                                              NSString *errorDescription = error.userInfo[@"NSLocalizedDescription"];
                                                              [requestModel.sessionModel endLoadingResponse:response responseObject:responseObject ErrorDescription:errorDescription];
-                                                             [self.requestManager sj_removeObjectRequestID:requestID];
+                                                             [self.requestManager ssj_removeObjectRequestID:requestID];
                                           
                                                              if (completion) {
                                                                  completion(error,responseObject,requestModel.requestConfig);
@@ -77,7 +77,7 @@
     
     NSString *requestID = dataTask.currentRequest.URL.absoluteString;
     SSJNetWorkRequestModel *model = [[SSJNetWorkRequestModel alloc] initWithRequestID:requestID ClassName:requestConfig.className dataTask:dataTask RequestConfig:requestConfig sessionModel:sessionModel];;
-    [self.requestManager sj_addObjectRequestModel:model];
+    [self.requestManager ssj_addObjectRequestModel:model];
 }
 
 

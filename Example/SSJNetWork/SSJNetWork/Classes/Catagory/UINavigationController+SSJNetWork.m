@@ -38,7 +38,7 @@
 }
 
 - (void)canceledClassRequest{
-    [[SSJURLRequestManager requestManager] sj_cancelObjectClassName:NSStringFromClass([self.topViewController class])];
+    [[SSJURLRequestManager requestManager] ssj_cancelObjectClassName:NSStringFromClass([self.topViewController class])];
 }
 
 @end

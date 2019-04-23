@@ -28,12 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (SSJURLRequestManager *)requestManager;
 
-- (void)sj_cancelAllRequest;
-- (void)sj_removeObjectRequestID:(NSString *)requestID;
-- (void)sj_cancelObjectRequestID:(NSString *)requestID;
-- (void)sj_cancelObjectClassName:(NSString *)className;
-- (void)sj_addObjectRequestModel:(SSJNetWorkRequestModel *)model;
--(SSJNetWorkRequestModel *)sj_valueForKeyRequestID:(NSString *)requestID;
+- (void)ssj_cancelAllRequest;
+- (void)ssj_removeObjectRequestID:(NSString *)requestID;
+- (void)ssj_cancelObjectRequestID:(NSString *)requestID;
+- (void)ssj_cancelObjectClassName:(NSString *)className;
+- (void)ssj_addObjectRequestModel:(SSJNetWorkRequestModel *)model;
+-(SSJNetWorkRequestModel *)ssj_valueForKeyRequestID:(NSString *)requestID;
 
 @end
 

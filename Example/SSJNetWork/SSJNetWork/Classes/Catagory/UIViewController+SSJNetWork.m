@@ -25,7 +25,7 @@
 }
 
 - (void)canceledClassRequest {
-    [[SSJURLRequestManager requestManager] sj_cancelObjectClassName:NSStringFromClass([self class])];
+    [[SSJURLRequestManager requestManager] ssj_cancelObjectClassName:NSStringFromClass([self class])];
 }
 
 
