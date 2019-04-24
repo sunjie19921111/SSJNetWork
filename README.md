@@ -44,9 +44,10 @@ pod 'AFNetworking', '~>3.1.0'
 #### 2、第二步 
 
 ####第一种封装方式
+
 封装SJApiRequestManager如demo中： NSObject (SJNetWork)
 
-#####封装post请求
+//封装post请求
 ```
 - (void)POST:(NSString *)URLString parameters:(id)parameter completion:(void (^)(NSError * _Nonnull, id _Nonnull))completion {
     SJNetworkRequestConfig *config = [[SJNetworkRequestConfig alloc] init];
@@ -58,7 +59,7 @@ pod 'AFNetworking', '~>3.1.0'
 ```
 
 
-#####封装get请求
+//封装get请求
 
 ```
 - (void)GET:(NSString *)URLString parameters:(id)parameter completion:(void (^)(NSError * _Nonnull, id _Nonnull))completion {
@@ -71,7 +72,7 @@ pod 'AFNetworking', '~>3.1.0'
 ```
 
 
-#####封装自定义参数请求
+//封装自定义参数请求
 
 
 ```
@@ -91,7 +92,7 @@ pod 'AFNetworking', '~>3.1.0'
 ```
 
 
-####第二种封装方式
+//第二种封装方式
 
 
 ```
