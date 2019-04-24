@@ -20,18 +20,8 @@
     return logManager;
 }
 
-- (instancetype)init {
-    if (self = [super init]) {
-        
-    }
-    return self;
-}
 
-- (void)start {
-    NSLog(@"");
-}
-
-- (UIViewController *)demoLogViewController {
+- (UIViewController *)LogViewController {
     NEHTTPEyeViewController *vc = [[NEHTTPEyeViewController alloc] init];
     return vc;
 }

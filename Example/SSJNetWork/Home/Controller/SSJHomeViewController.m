@@ -37,7 +37,7 @@
 }
 
 - (IBAction)clickLogButton:(id)sender {
-    NEHTTPEyeViewController *vc = [[NEHTTPEyeViewController alloc] init];
+    UIViewController *vc = [SSJLogManager sharedManager].LogViewController;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

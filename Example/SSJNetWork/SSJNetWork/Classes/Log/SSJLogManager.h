@@ -12,12 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SSJLogManager : NSObject
 
-
 + (instancetype)sharedManager;
 
-- (void)start;
-
-- (UIViewController *)demoLogViewController;
+- (UIViewController *)LogViewController;
 
 @end
 
