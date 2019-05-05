@@ -85,6 +85,15 @@
 
 - (void)addModel:(SSJHTTPSessionModel *) aModel {
     
+    NSArray *models = [[NEHTTPModelManager defaultManager] allobjects];
+    for (SSJHTTPSessionModel *model in models) {
+        if ([aModel.requestURLString isEqualToString:model.requestURLString]) {
+            [self deleteModel:aModel];
+        }
+    }
+    
+    
+    
     if ([aModel.responseMIMEType isEqualToString:@"text/html"]) {
         aModel.receiveJSONData=@"";
     }
@@ -110,6 +119,8 @@
         [db executeUpdate:sql];
     }];
     
+    
+    
 //    if (enablePersistent) {
 //#if FMDB_SQLCipher
 //
@@ -126,6 +137,34 @@
     return ;
     
 }
+
+//- (BOOL)isExistsModel:(SSJHTTPSessionModel *)aModel {
+//
+//    __block BOOL exist = NO;
+//    FMDatabaseQueue *queue= [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
+//    NSString *sql =[NSString stringWithFormat:@"select * from nenetworkhttpeyes WHERE requestURLString VALUES (?)",aModel.requestURLString];
+//    [queue inDatabase:^(FMDatabase *db) {
+//        [db setKey:_sqlitePassword];
+//        FMResultSet *rs = [db executeUpdate:<#(nonnull NSString *), ...#>:sql];
+//        while ([rs next]) {
+//            exist = YES;
+//        }
+//    }];
+//
+//    return exist;
+//}
+//
+- (BOOL)deleteModel:(SSJHTTPSessionModel *)model {
+    __block BOOL success = NO;
+    FMDatabaseQueue *queue= [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
+    NSString *sql =[NSString stringWithFormat:@"DELETE from nenetworkhttpeyes WHERE requestURLString = ?"];
+    [queue inDatabase:^(FMDatabase *db) {
+        [db setKey:_sqlitePassword];
+        success = [db executeUpdate:sql,model.requestURLString];
+    }];
+    return success;
+}
+
 
 - (NSMutableArray *)allobjects {
     

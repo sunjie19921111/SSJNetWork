@@ -211,6 +211,7 @@ void SJLog(NSString *format, ...) {
 #if DEBUG
     
     if ([SSJNetWorkConfig netWorkConfig].SQLLogEnable) {
+        [[NEHTTPModelManager defaultManager] deleteModel:self];
         [[NEHTTPModelManager defaultManager] addModel:self];
     } else {
         SJLog(@"未开启SQLLogEnable日志");

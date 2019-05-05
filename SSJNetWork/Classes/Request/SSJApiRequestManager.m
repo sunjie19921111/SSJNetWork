@@ -86,11 +86,12 @@ typedef void(^SJJCacheQueryCompletedBlock)(id response, NSError *error);
 
 - (void)ssj_networkRequestConfig:(SSJNetworkRequestConfig *)config completionBlock:(SSJRequestingBlock)completion {
     [self queryCacheOperationForConfig:config done:^(id response, NSError *error) {
-        if ([response isKindOfClass:[NSDictionary class]] && !error) {
-            completion(nil,response);
-        } else {
-            [self callRequestConfig:config completionBlock:completion];
-        }
+         [self callRequestConfig:config completionBlock:completion];
+//        if ([response isKindOfClass:[NSDictionary class]] && !error) {
+//            completion(nil,response);
+//        } else {
+//            [self callRequestConfig:config completionBlock:completion];
+//        }
     }];
 }
 
