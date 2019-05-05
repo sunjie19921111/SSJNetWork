@@ -2,6 +2,8 @@
 //  SJMemCacheDataCenter.h
 //  SJNetWork
 //
+//  Copyright (c) 2012-2016 SSJNetWork https://github.com/sunjie19921111/SSJNetWork
+//
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
 //  in the Software without restriction, including without limitation the rights
@@ -21,6 +23,8 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+
+typedef void(^SJJCacheQueryCompletedBlock)(id response, NSError *error);
 
 @interface SSJMemCacheConfigModel : NSObject<NSSecureCoding>
 

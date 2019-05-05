@@ -24,6 +24,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^SJJCacheQueryCompletedBlock)(id response, NSError *error);
+
 @interface SSJMemCacheConfigModel : NSObject<NSSecureCoding>
 
 @property (nonatomic, copy)   NSString *cacheVersion;

@@ -1,6 +1,7 @@
 //
-//  SSJApiProxy.h
+//  SSJLogManager.h
 //  SSJNetWork_Example
+//
 //  Copyright (c) 2012-2016 SSJNetWork https://github.com/sunjie19921111/SSJNetWork
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,18 +23,14 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-@class SSJNetworkRequestConfig;
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface SSJLogManager : NSObject
 
-typedef void(^SJJRequestCompletionBlock)(NSError * _Nullable error, id _Nonnull responseObject,SSJNetworkRequestConfig *requestModel);
++ (instancetype)sharedManager;
 
-@interface SSJApiProxy : NSObject
-
-+ (instancetype)sharedInstance;
-- (void)callNetWorkRequestConfig:(SSJNetworkRequestConfig *)requestConfig completionBlock:(SJJRequestCompletionBlock)completion;
-
+- (UIViewController *)LogViewController;
 
 @end
 

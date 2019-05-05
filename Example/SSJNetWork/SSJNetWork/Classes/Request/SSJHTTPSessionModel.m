@@ -218,9 +218,18 @@ void SJLog(NSString *format, ...) {
     
 #endif
     
-    SSJNetWorkLogHelper *log = [[SSJNetWorkLogHelper alloc] initWithSessionModel:self];;
-    NSString *logString = [log printRequestLog];
-    SJLog(@"%@",logString);
+#if DEBUG
+    
+    if ([SSJNetWorkConfig netWorkConfig].dubugLogeEnable) {
+        SSJNetWorkLogHelper *log = [[SSJNetWorkLogHelper alloc] initWithSessionModel:self];;
+        NSString *logString = [log printRequestLog];
+         SJLog(@"%@",logString);
+    } else {
+        SJLog(@"未开启控制台日志");
+    }
+    
+#endif
+    
     
     double flowCount=[[[NSUserDefaults standardUserDefaults] objectForKey:@"flowCount"] doubleValue];
     if (!flowCount) {

@@ -9,10 +9,8 @@
 #import "NEHTTPModelManager.h"
 #import "SSJHTTPSessionModel.h"
 #import "SSJNetWorkConfig.h"
-#if FMDB_SQLCipher
-#include "sqlite3.h"
-#import "FMDB.h"
-#endif
+#import "SSJHTTPSessionModel.h"
+#import <FMDB/FMDB.h>
 #define kSTRDoubleMarks @"\""
 #define kSQLDoubleMarks @"\"\""
 #define kSTRShortMarks  @"'"
@@ -20,9 +18,9 @@
 
 @interface NEHTTPModelManager (){
     NSMutableArray *allMapRequests;
-#if FMDB_SQLCipher
+//#if FMDB_SQLCipher
     FMDatabaseQueue *sqliteDatabase;
-#endif
+//#endif
     
 }
 @end
@@ -36,12 +34,13 @@
         self.saveRequestMaxCount=[SSJNetWorkConfig netWorkConfig].ne_saveRequestMaxCount;;
         allRequests = [NSMutableArray arrayWithCapacity:1];
         allMapRequests = [NSMutableArray arrayWithCapacity:1];
-#if FMDB_SQLCipher
         enablePersistent = YES;
-#else
-        enablePersistent = NO;
-        
-#endif
+//#if FMDB_SQLCipher
+//        enablePersistent = YES;
+//#else
+//        enablePersistent = NO;
+//
+//#endif
     }
     return self;
 }
@@ -69,14 +68,19 @@
     
     NSMutableString *init_sqls=[NSMutableString stringWithCapacity:1024];
     [init_sqls appendFormat:@"create table if not exists nenetworkhttpeyes(myID double primary key,startDateString text,endDateString text,requestURLString text,requestCachePolicy text,requestTimeoutInterval double,requestHTTPMethod text,requestAllHTTPHeaderFields text,requestHTTPBody text,responseMIMEType text,responseExpectedContentLength text,responseTextEncodingName text,responseSuggestedFilename text,responseStatusCode int,responseAllHeaderFields text,receiveJSONData text);"];
-#if FMDB_SQLCipher
-    
     FMDatabaseQueue *queue= [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
     [queue inDatabase:^(FMDatabase *db) {
         [db setKey:_sqlitePassword];
         [db executeUpdate:init_sqls];
     }];
-#endif
+//#if FMDB_SQLCipher
+//
+//    FMDatabaseQueue *queue= [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
+//    [queue inDatabase:^(FMDatabase *db) {
+//        [db setKey:_sqlitePassword];
+//        [db executeUpdate:init_sqls];
+//    }];
+//#endif
 }
 
 - (void)addModel:(SSJHTTPSessionModel *) aModel {
@@ -98,18 +102,26 @@
     NSString *receiveJSONData;
     receiveJSONData=[self stringToSQLFilter:aModel.receiveJSONData];
     NSString *sql=[NSString stringWithFormat:@"insert into nenetworkhttpeyes values('%lf','%@','%@','%@','%@','%lf','%@','%@','%@','%@','%@','%@','%@','%d','%@','%@')",aModel.ID,aModel.startDateString,aModel.endDateString,aModel.requestURLString,aModel.requestCachePolicy,aModel.requestTimeoutInterval,aModel.requestHTTPMethod,aModel.requestAllHTTPHeaderFields,aModel.requestHTTPBody,aModel.responseMIMEType,aModel.responseExpectedContentLength,aModel.responseTextEncodingName,aModel.responseSuggestedFilename,aModel.responseStatusCode,[self stringToSQLFilter:aModel.responseAllHeaderFields],receiveJSONData];
-    if (enablePersistent) {
-#if FMDB_SQLCipher
-        
-        FMDatabaseQueue *queue= [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
-        [queue inDatabase:^(FMDatabase *db) {
-            [db setKey:_sqlitePassword];
-            [db executeUpdate:sql];
-        }];
-#endif
-    }else {
-        [allRequests addObject:aModel];
-    }
+    
+    
+    FMDatabaseQueue *queue= [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
+    [queue inDatabase:^(FMDatabase *db) {
+        [db setKey:_sqlitePassword];
+        [db executeUpdate:sql];
+    }];
+    
+//    if (enablePersistent) {
+//#if FMDB_SQLCipher
+//
+//        FMDatabaseQueue *queue= [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
+//        [queue inDatabase:^(FMDatabase *db) {
+//            [db setKey:_sqlitePassword];
+//            [db executeUpdate:sql];
+//        }];
+//#endif
+//    }else {
+//        [allRequests addObject:aModel];
+//    }
     
     return ;
     
@@ -123,7 +135,7 @@
         }
         return allRequests;
     }
-#if FMDB_SQLCipher
+//#if FMDB_SQLCipher
     
     FMDatabaseQueue *queue= [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
     NSString *sql =[NSString stringWithFormat:@"select * from nenetworkhttpeyes order by myID desc"];
@@ -132,8 +144,8 @@
         [db setKey:_sqlitePassword];
         FMResultSet *rs = [db executeQuery:sql];
         while ([rs next]) {
-            NEHTTPModel *model=[[NEHTTPModel alloc] init];
-            model.myID=[rs doubleForColumn:@"myID"];
+            SSJHTTPSessionModel *model=[[SSJHTTPSessionModel alloc] init];
+            model.ID=[rs doubleForColumn:@"myID"];
             model.startDateString=[rs stringForColumn:@"startDateString"];
             model.endDateString=[rs stringForColumn:@"endDateString"];
             model.requestURLString=[rs stringForColumn:@"requestURLString"];
@@ -158,8 +170,8 @@
     }
     
     return array;
-#endif
-    return nil;
+//#endif
+//    return nil;
 }
 
 - (void) deleteAllItem {
@@ -169,7 +181,7 @@
         return;
     }
     NSString *sql=[NSString stringWithFormat:@"delete from nenetworkhttpeyes"];
-#if FMDB_SQLCipher
+//#if FMDB_SQLCipher
     
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
     [queue inDatabase:^(FMDatabase *db) {
@@ -178,7 +190,7 @@
     }];
     
     return ;
-#endif
+//#endif
 }
 
 #pragma mark - map local

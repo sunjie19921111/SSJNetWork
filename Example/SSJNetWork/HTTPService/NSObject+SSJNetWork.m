@@ -30,7 +30,7 @@
 
 - (void)networkRequestConfig:(SSJNetworkRequestConfig *)config completion:(void (^)(NSError * _Nonnull, id _Nonnull))completion {
     config.className = NSStringFromClass(self.class);
-    [[SSJApiRequestManager requestManager] ssj_networkRequestConfig:config completion:^(NSError * _Nonnull error, id  _Nonnull responseObject) {
+    [[SSJApiRequestManager requestManager] ssj_networkRequestConfig:config completionBlock:^(NSError * _Nullable error, id  _Nonnull responseObject) {
         //一些错误提示处理
         if (error.code == SSJApiManagerErrorTypeNoNetWork) {
             //错误操作
@@ -40,8 +40,8 @@
         if (completion) {
             completion(error,completion);
         }
-        
     }];
+    
 }
 
 @end

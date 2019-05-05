@@ -22,15 +22,17 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-
 @class SSJNetworkRequestConfig;
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+typedef void(^SJJRequestCompletionBlock)(NSError * _Nullable error, id _Nonnull responseObject,SSJNetworkRequestConfig *requestModel);
+
 @interface SSJApiProxy : NSObject
 
 + (instancetype)sharedInstance;
-- (void)callNetWorkRequestConfig:(SSJNetworkRequestConfig *)requestConfig completion:(void(^)(NSError *error, id responseObject,SSJNetworkRequestConfig *requestModel))completion;
+- (void)callNetWorkRequestConfig:(SSJNetworkRequestConfig *)requestConfig completionBlock:(SJJRequestCompletionBlock)completion;
 
 
 @end

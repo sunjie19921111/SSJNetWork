@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //假如有一些参数传递
 - (void)getHomeRequestUserId:(NSString *)userId completion:(void(^)(NSError *error, id responseObject))completion;
+- (void)getHomeRequestUserName:(NSString *)userName completion:(nonnull void (^)(NSError *error, id responseObject))completion;
 
 @end
 

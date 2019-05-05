@@ -38,9 +38,9 @@ static inline void swizzling_exchangeMethod(Class _Nonnull clazz, SEL _Nonnull o
 }
 
 typedef NS_ENUM(NSInteger,SSJApiManagerErrorType) {
-    SSJApiManagerErrorTypeRefreshToken = -1,//刷新token
-    SSJApiManagerErrorTypeLogin = -2,  //登录
-    SSJApiManagerErrorTypeCanceled = -3, //取消
+    SSJApiManagerErrorTypeRefreshToken = -1,
+    SSJApiManagerErrorTypeLogin = -2,
+    SSJApiManagerErrorTypeCanceled = -3,
     SSJApiManagerErrorTypeNoNetWork = -4,
     SSJApiManagerErrorTypeTimeOut = -5,
     SSJApiManagerErrorTypeSuccess = -6,
@@ -48,6 +48,12 @@ typedef NS_ENUM(NSInteger,SSJApiManagerErrorType) {
     SSJApiManagerErrorTypeDateExpire = -8,
     SSJApiManagerErrorTypeAppVersionExpire = -9,
     SSJApiManagerErrorTypeInvaliData = -10,
+};
+
+typedef NS_ENUM(NSInteger,SSJApiManagerNetWorkType) {
+    SSJApiManagerNetWorkTypeWiFi = 1,
+    SSJApiManagerNetWorkTypeWWAN ,
+    SSJApiManagerNetWorkTypeNoReachable,
 };
 
 

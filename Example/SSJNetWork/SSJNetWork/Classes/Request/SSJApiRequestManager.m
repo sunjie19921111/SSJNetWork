@@ -33,7 +33,7 @@
 #import "SSJURLRequestManager.h"
 #import "SSJNetworkRequestConfig.h"
 
-NSString * const SSJRequestCacheErrorDomain = @"com.sxnetwork.request.caching";
+NSString * const SSJRequestCacheErrorDomain = @"com.network.request.caching";
 NSString * const SSJNetworknFailingDataErrorKey = @"com.network.error.data";
 
 static NSError * SSJErrorWithUnderlyingError(NSError *error, NSError *underlyingError) {
@@ -51,13 +51,15 @@ static NSError * SSJErrorWithUnderlyingError(NSError *error, NSError *underlying
     return [[NSError alloc] initWithDomain:error.domain code:error.code userInfo:mutableUserInfo];
 }
 
+typedef void(^SJJCacheQueryCompletedBlock)(id response, NSError *error);
+
 @interface SSJApiRequestManager ()
 
-@property (nonatomic, assign) SSJApiManagerErrorType errorType;
-@property (nonatomic, strong) NSString *cachePath;
-@property (nonatomic, strong) SSJURLRequestManager *requestManager;
-@property (nonatomic, strong) SSJNetWorkConfig *netWorkConfig;
-@property (nonatomic, strong) SSJNetworkRequestConfig *requestConfig;
+@property (nonatomic, assign)           SSJApiManagerErrorType errorType;
+@property (nonatomic, strong, nullable) NSString *cachePath;
+@property (nonatomic, strong, nullable) SSJURLRequestManager *requestManager;
+@property (nonatomic, strong, nullable) SSJNetWorkConfig *netWorkConfig;
+
 
 @end
 
@@ -76,52 +78,89 @@ static NSError * SSJErrorWithUnderlyingError(NSError *error, NSError *underlying
     if (self = [super init]) {
         _requestManager = [SSJURLRequestManager requestManager];
         _netWorkConfig = [SSJNetWorkConfig netWorkConfig];
+
     }
     return self;
 }
 
 
-- (void)ssj_networkRequestConfig:(SSJNetworkRequestConfig *)config completion:(void (^)(NSError * _Nonnull, id _Nonnull))completion {
-    self.requestConfig = config;
-    NSError *validationError = nil;
-    id json = nil;
+- (void)ssj_networkRequestConfig:(SSJNetworkRequestConfig *)config completionBlock:(SSJRequestingBlock)completion {
+    [self queryCacheOperationForConfig:config done:^(id response, NSError *error) {
+        if ([response isKindOfClass:[NSDictionary class]] && !error) {
+            completion(nil,response);
+        } else {
+            [self callRequestConfig:config completionBlock:completion];
+        }
+    }];
+}
 
-    validationError = [self loadMemoryCacheData];
-    if (!validationError) {
-        json = [self getResponseObjectData];
-    }
-    
-    if (json) {
-        completion(validationError,json); return;
-    }
-    
+- (void)callRequestConfig:(SSJNetworkRequestConfig *)config
+          completionBlock:(nullable SSJRequestingBlock)completion {
+
     if (![SSJNetWorkHelper ssj_isReachable]) {
         NSMutableDictionary *mutableUserInfo = [@{
                                                   NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Request failed: not network"],
                                                   } mutableCopy];
+        NSError *validationError  = nil;
         validationError = SSJErrorWithUnderlyingError([NSError errorWithDomain:SSJRequestCacheErrorDomain code:SSJApiManagerErrorTypeNoNetWork userInfo:mutableUserInfo], validationError);
-        completion(validationError,json);
-        return;
+        completion(validationError,nil); return;
     }
-    
-    [[SSJApiProxy sharedInstance] callNetWorkRequestConfig:config completion:^(NSError * _Nonnull error, id  _Nonnull responseObject, SSJNetworkRequestConfig * _Nonnull requestConfig) {
-        self.requestConfig  = requestConfig;
+
+    [[SSJApiProxy sharedInstance] callNetWorkRequestConfig:config completionBlock:^(NSError * _Nullable error, id  _Nonnull responseObject, SSJNetworkRequestConfig * _Nonnull config) {
         if (completion) {
             completion(error,responseObject);
         }
         if (!error) {
-            [self saveCacheConfig];
-            [self saveResponseObject:responseObject];
+            NSString *key = [self defaultCachePathForConfig:config];
+            [self storeCacheObject:responseObject cachePathForKey:key];
         }
     }];
 }
-- (void)saveCacheConfig {
-    SSJMemCacheConfigModel *config = [[SSJMemCacheConfigModel alloc] initWithCacheTime:[NSDate date]];
-    [[SSJMemCacheDataCenter shareInstance] sj_configSetObject:config forKey:self.cachePath];
+
+
+- (void)storeCacheObject:(nullable id)object cachePathForKey:(NSString *)key {
+    if (![object isKindOfClass:[NSDictionary class]] && !key) {
+        return;
+    }
+    @autoreleasepool {
+        NSData *data = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:nil];
+        if (!data || data.length < 1) {
+            return;
+        }
+        [[SSJMemCacheDataCenter shareInstance] sj_responseSetObject:data forKey:key];
+        SSJMemCacheConfigModel *config = [[SSJMemCacheConfigModel alloc] initWithCacheTime:[NSDate date]];
+        [[SSJMemCacheDataCenter shareInstance] sj_configSetObject:config forKey:key];
+    }
 }
 
-- (NSError *)loadMemoryCacheData {
-    NSString *key = self.cachePath;
+- (void)queryCacheOperationForConfig:(SSJNetworkRequestConfig *)config
+                                done:(nullable SJJCacheQueryCompletedBlock)doneBlock {
+    NSString *key = [self defaultCachePathForConfig:config];
+    NSError *validationError = nil;
+    id json = nil;
+    validationError = [self isCacheDataAvailableForConfig:config];
+    
+    if (validationError) {
+        doneBlock(json, validationError); return;
+    }
+    
+    NSData *data = [[SSJMemCacheDataCenter shareInstance] sj_responseObjectForKey:key];
+    
+    if (!data || data.length < 1) {
+        NSMutableDictionary *mutableUserInfo = [@{
+                                                  NSLocalizedDescriptionKey: [NSString stringWithFormat:@"failed: invaliData"],
+                                                  } mutableCopy];
+        validationError = SSJErrorWithUnderlyingError([NSError errorWithDomain:SSJRequestCacheErrorDomain code:SSJApiManagerErrorTypeInvaliData userInfo:mutableUserInfo], validationError);
+        doneBlock(json, validationError); return;;
+    }
+
+    json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&validationError];
+    doneBlock(json, validationError); return;
+}
+
+
+- (NSError *)isCacheDataAvailableForConfig:(SSJNetworkRequestConfig *)config {
+        NSString *key = [self defaultCachePathForConfig:config];
     SSJMemCacheConfigModel *model = [[SSJMemCacheDataCenter shareInstance] sj_configObjectForKey:key];
     NSError *validationError = nil;
     
@@ -150,6 +189,14 @@ static NSError * SSJErrorWithUnderlyingError(NSError *error, NSError *underlying
         return validationError;
     }
     
+    if ([_netWorkConfig.cacheTimeInSeconds integerValue] <= 0 || config.shouldAllIgnoreCache) {
+        NSMutableDictionary *mutableUserInfo = [@{
+                                                  NSLocalizedDescriptionKey: [NSString stringWithFormat:@"failed: cacheTimeInSeconds and IgnoreCache"],
+                                                  } mutableCopy];
+        validationError = SSJErrorWithUnderlyingError([NSError errorWithDomain:SSJRequestCacheErrorDomain code:SSJApiManagerErrorTypeCacheExpire userInfo:mutableUserInfo], validationError);
+        return validationError;
+    }
+    
     if (validationError) {
         [[SSJMemCacheDataCenter shareInstance] sj_responseRemoveObjectForKey:key];
         [[SSJMemCacheDataCenter shareInstance] sj_configRemoveObjectForKey:key];
@@ -158,50 +205,11 @@ static NSError * SSJErrorWithUnderlyingError(NSError *error, NSError *underlying
     return validationError;
 }
 
-- (void)saveResponseObject:(id)object {
-    
-    //判断缓冲时间和是否忽略缓冲
-    if ([_netWorkConfig.cacheTimeInSeconds integerValue] <= 0 || self.requestConfig.shouldAllIgnoreCache) {
-        return;
-    }
-    
-    NSData *data = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:nil];
-    if (!data || data.length < 1) {
-        return;
-    }
-    NSString *key = self.cachePath;
-    [[SSJMemCacheDataCenter shareInstance] sj_responseSetObject:data forKey:key];
-}
 
-- (id)getResponseObjectData {
-    NSError *validationError = nil;
-    if ([_netWorkConfig.cacheTimeInSeconds integerValue] <= 0 || self.requestConfig.shouldAllIgnoreCache) {
-        NSMutableDictionary *mutableUserInfo = [@{
-                                                  NSLocalizedDescriptionKey: [NSString stringWithFormat:@"failed: cacheTimeInSeconds and IgnoreCache"],
-                                                  } mutableCopy];
-        validationError = SSJErrorWithUnderlyingError([NSError errorWithDomain:SSJRequestCacheErrorDomain code:SSJApiManagerErrorTypeCacheExpire userInfo:mutableUserInfo], validationError);
-        return nil;
-    }
-    NSString *key = self.cachePath;
-    NSData *data = [[SSJMemCacheDataCenter shareInstance] sj_responseObjectForKey:key];
-    if (!data || data.length < 1) {
-        NSMutableDictionary *mutableUserInfo = [@{
-                                                  NSLocalizedDescriptionKey: [NSString stringWithFormat:@"failed: invaliData"],
-                                                  } mutableCopy];
-        validationError = SSJErrorWithUnderlyingError([NSError errorWithDomain:SSJRequestCacheErrorDomain code:SSJApiManagerErrorTypeInvaliData userInfo:mutableUserInfo], validationError);
-        return nil;
-    }
-    NSError *error = nil;
-    id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-    if (!error) {
-        return json;
-    }
-    return nil;
-}
-
-- (NSString *)cachePath {
-    NSString *requestString = [NSString stringWithFormat:@"method:%@ url:%@ params:%@",_requestConfig.method,_requestConfig.urlString,_requestConfig.params];
+- (NSString *)defaultCachePathForConfig:(SSJNetworkRequestConfig *)config {
+    NSString *requestString = [NSString stringWithFormat:@"method:%@ url:%@ params:%@",config.method,config.urlString,config.params];
     return [requestString ssj_MD5String];
 }
+
 
 @end

@@ -16,7 +16,8 @@
 //NSString *url5 = @"https://news-at.zhihu.com/api/4/news/9710027";;
 
 
-#define kHomeUrl  @"https://news-at.zhihu.com/api/4/news/9710114"
+#define kHomeUrl   @"https://news-at.zhihu.com/api/4/news/9710114"
+#define kHomeUrl2  @"https://news-at.zhihu.com/api/4/news/9710027"
 
 @interface SSJHomeRequestService ()
 
@@ -39,6 +40,20 @@
 //    [params setObject:userId forKey:@"userId"]
     
     [self.vc GET:kHomeUrl parameters:nil completion:^(NSError * _Nonnull error, id  _Nonnull responseObject) {
+        //转化成对应的模型回调
+        if (completion) {
+            completion(error,responseObject);
+        }
+        
+    }];
+}
+
+- (void)getHomeRequestUserName:(NSString *)userName completion:(nonnull void (^)(NSError * _Nonnull, id _Nonnull))completion{
+    //
+    //    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    //    [params setObject:userId forKey:@"userId"]
+    
+    [self.vc GET:kHomeUrl2 parameters:nil completion:^(NSError * _Nonnull error, id  _Nonnull responseObject) {
         //转化成对应的模型回调
         if (completion) {
             completion(error,responseObject);

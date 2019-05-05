@@ -34,6 +34,9 @@
     [_requestService getHomeRequestUserId:@"123" completion:^(NSError * _Nonnull error, id  _Nonnull responseObject) {
         NSLog(@"请求数据成功");
     }];;
+    [_requestService getHomeRequestUserName:@"" completion:^(NSError * _Nonnull error, id  _Nonnull responseObject) {
+        NSLog(@"请求数据成功");
+    }];
 }
 
 - (IBAction)clickLogButton:(id)sender {

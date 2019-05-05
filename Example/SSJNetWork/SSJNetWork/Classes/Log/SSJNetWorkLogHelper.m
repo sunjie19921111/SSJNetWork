@@ -64,9 +64,9 @@
     NSString *errorDescription = nil;
     NSString *receiveJSONData = nil;
     if (!self.model.errorDescription) {
-        errorDescription = [NSString stringWithFormat:@"[responseJSON] : %@",self.model.errorDescription];
+         receiveJSONData = [NSString stringWithFormat:@"[responseJSON] : %@",self.model.receiveJSONData];
     } else {
-        receiveJSONData = [NSString stringWithFormat:@"[responseJSON] : %@",self.model.receiveJSONData];
+        errorDescription = [NSString stringWithFormat:@"[responseJSON] : %@",self.model.errorDescription];
     }
     NSString *requestEnd = [NSString stringWithFormat:@"\n---------------------requestEnd----------------------\n"];
     

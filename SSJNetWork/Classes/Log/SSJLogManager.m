@@ -1,6 +1,7 @@
 //
-//  SSJApiProxy.h
+//  SSJLogManager.m
 //  SSJNetWork_Example
+//
 //  Copyright (c) 2012-2016 SSJNetWork https://github.com/sunjie19921111/SSJNetWork
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,20 +22,24 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-@class SSJNetworkRequestConfig;
+#import "SSJLogManager.h"
+#import "NEHTTPEyeViewController.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@implementation SSJLogManager
+
++ (instancetype)sharedManager {
+    static SSJLogManager *logManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        logManager = [[SSJLogManager alloc] init];
+    });
+    return logManager;
+}
 
 
-typedef void(^SJJRequestCompletionBlock)(NSError * _Nullable error, id _Nonnull responseObject,SSJNetworkRequestConfig *requestModel);
-
-@interface SSJApiProxy : NSObject
-
-+ (instancetype)sharedInstance;
-- (void)callNetWorkRequestConfig:(SSJNetworkRequestConfig *)requestConfig completionBlock:(SJJRequestCompletionBlock)completion;
-
+- (UIViewController *)LogViewController {
+    NEHTTPEyeViewController *vc = [[NEHTTPEyeViewController alloc] init];
+    return vc;
+}
 
 @end
-
-NS_ASSUME_NONNULL_END

@@ -56,8 +56,5 @@ typedef NS_ENUM(NSInteger,SSJApiManagerNetWorkType) {
     SSJApiManagerNetWorkTypeNoReachable,
 };
 
-NSString * const AFNetworkingReachabilityDidChangeNotification = @"com.networking.reachability.change";
-NSString * const AFNetworkingReachabilityNotificationStatusItem = @"AFNetworkingReachabilityNotificationStatusItem";
-
 
 #endif /* SJNetworkingDefines_h */

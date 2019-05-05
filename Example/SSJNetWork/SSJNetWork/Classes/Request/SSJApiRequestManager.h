@@ -25,13 +25,16 @@
 #import <Foundation/Foundation.h>
 @class SSJNetworkRequestConfig;
 
+
+typedef void(^SSJRequestingBlock)(NSError * _Nullable error, id _Nullable responseObject);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SSJApiRequestManager : NSObject
 
 + (instancetype)requestManager;
 
-- (void)ssj_networkRequestConfig:(SSJNetworkRequestConfig *)config completion:(void(^)(NSError *error, id responseObject))completion;
+- (void)ssj_networkRequestConfig:(SSJNetworkRequestConfig *)config completionBlock:(SSJRequestingBlock)completion;
 
 @end
 

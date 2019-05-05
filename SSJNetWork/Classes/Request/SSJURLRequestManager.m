@@ -2,9 +2,25 @@
 //  SSJURLRequestManager.m
 //  SSJNetWork_Example
 //
-//  Created by Sunjie on 2019/4/22.
-//  Copyright © 2019 15220092519@163.com. All rights reserved.
+//  Copyright (c) 2012-2016 SSJNetWork https://github.com/sunjie19921111/SSJNetWork
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 #import "SSJURLRequestManager.h"
 
@@ -50,13 +66,13 @@
     return self;
 }
 
-- (void)sj_addObjectRequestModel:(SSJNetWorkRequestModel *)model {
+- (void)ssj_addObjectRequestModel:(SSJNetWorkRequestModel *)model {
     @synchronized (self) {
         [_requestIds addObject:model];
     }
 }
 
-- (void)sj_removeObjectRequestID:(NSString *)requestID {
+- (void)ssj_removeObjectRequestID:(NSString *)requestID {
     @synchronized (self) {
         __block SSJNetWorkRequestModel *model = nil;
         [_requestIds enumerateObjectsUsingBlock:^(SSJNetWorkRequestModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -71,7 +87,7 @@
     }
 }
 
--(SSJNetWorkRequestModel *)sj_valueForKeyRequestID:(NSString *)requestID {
+-(SSJNetWorkRequestModel *)ssj_valueForKeyRequestID:(NSString *)requestID {
     @synchronized (self) {
         __block SSJNetWorkRequestModel *model = nil;
         [_requestIds enumerateObjectsUsingBlock:^(SSJNetWorkRequestModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -83,7 +99,7 @@
     }
 }
 
-- (void)sj_cancelObjectRequestID:(NSString *)requestID {
+- (void)ssj_cancelObjectRequestID:(NSString *)requestID {
     @synchronized (self) {
         __block SSJNetWorkRequestModel *model = nil;
         [_requestIds enumerateObjectsUsingBlock:^(SSJNetWorkRequestModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -99,7 +115,7 @@
     }
 }
 
-- (void)sj_cancelObjectClassName:(NSString *)className {
+- (void)ssj_cancelObjectClassName:(NSString *)className {
     @synchronized (self) {
         NSMutableArray *classRequests = [NSMutableArray arrayWithCapacity:1];
         [_requestIds enumerateObjectsUsingBlock:^(SSJNetWorkRequestModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -114,7 +130,7 @@
     }
 }
 
-- (void)sj_cancelAllRequest {
+- (void)ssj_cancelAllRequest {
     [self.requestIds removeAllObjects];
 }
 
