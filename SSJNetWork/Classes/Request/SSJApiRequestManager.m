@@ -86,12 +86,11 @@ typedef void(^SJJCacheQueryCompletedBlock)(id response, NSError *error);
 
 - (void)ssj_networkRequestConfig:(SSJNetworkRequestConfig *)config completionBlock:(SSJRequestingBlock)completion {
     [self queryCacheOperationForConfig:config done:^(id response, NSError *error) {
-         [self callRequestConfig:config completionBlock:completion];
-//        if ([response isKindOfClass:[NSDictionary class]] && !error) {
-//            completion(nil,response);
-//        } else {
-//            [self callRequestConfig:config completionBlock:completion];
-//        }
+        if ([response isKindOfClass:[NSDictionary class]] && !error) {
+            completion(nil,response);
+        } else {
+            [self callRequestConfig:config completionBlock:completion];
+        }
     }];
 }
 
@@ -107,12 +106,12 @@ typedef void(^SJJCacheQueryCompletedBlock)(id response, NSError *error);
         completion(validationError,nil); return;
     }
 
-    [[SSJApiProxy sharedInstance] callNetWorkRequestConfig:config completionBlock:^(NSError * _Nullable error, id  _Nonnull responseObject, SSJNetworkRequestConfig * _Nonnull config) {
+    [[SSJApiProxy sharedInstance] callNetWorkRequestConfig:config completionBlock:^(NSError * _Nullable error, id  _Nonnull responseObject, SSJNetworkRequestConfig * _Nonnull requestConfig) {
         if (completion) {
             completion(error,responseObject);
         }
         if (!error) {
-            NSString *key = [self defaultCachePathForConfig:config];
+            NSString *key = [self defaultCachePathForConfig:requestConfig];
             [self storeCacheObject:responseObject cachePathForKey:key];
         }
     }];

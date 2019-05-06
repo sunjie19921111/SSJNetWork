@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-typedef void(^SJJRequestCompletionBlock)(NSError * _Nullable error, id _Nonnull responseObject,SSJNetworkRequestConfig *requestModel);
+typedef void(^SJJRequestCompletionBlock)(NSError * _Nullable error, id _Nonnull responseObject,SSJNetworkRequestConfig *requestConfig);
 
 @interface SSJApiProxy : NSObject
 

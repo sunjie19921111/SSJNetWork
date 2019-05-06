@@ -77,8 +77,11 @@
     __block NSURLSessionDataTask *dataTask =  [manager dataTaskWithRequest:mutableRequest
                                                          completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
                                                              [self addCompletionCallback:completion response:response responseObject:responseObject error:error];
-                                                             
+
                                                          }];
+
+
+
     [dataTask resume];
     
     [self startLoadRequest:mutableRequest dataTask:dataTask RequestConfig:requestConfig];
