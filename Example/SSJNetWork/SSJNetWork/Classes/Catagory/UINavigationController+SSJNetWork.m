@@ -44,7 +44,6 @@
 
 - (nullable NSArray<__kindof UIViewController *> *)ssj_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self canceledClassRequest];
-    
     return [self ssj_popToViewController:viewController animated:animated];
 }
 
