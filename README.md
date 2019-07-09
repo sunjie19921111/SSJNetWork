@@ -1,5 +1,5 @@
 
-# SJNetwork
+# SJJNetwork
 
 对AFNetWorking 二次封装 实现自动取消网络请求，网络请求缓冲，网络请求日志详细打印
 
