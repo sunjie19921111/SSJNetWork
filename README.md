@@ -17,11 +17,11 @@
 ## 安装
 
 第一种方式：
-1. 下载 SJNetwork 文件夹所有内容并且拖入你的工程中。
+1. 下载 SJJNetwork 文件夹所有内容并且拖入你的工程中。
 
 
 第二种方式：
-pod 'SJNetwork'
+pod 'SJJNetwork'
 
 请pod导入这些依赖库
 
