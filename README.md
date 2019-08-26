@@ -1,5 +1,5 @@
 
-# SJJNetwork
+# SSJNetWork
 
 对AFNetWorking 二次封装 实现自动取消网络请求，网络请求缓冲，网络请求日志详细打印
 
@@ -17,11 +17,11 @@
 ## 安装
 
 第一种方式：
-1. 下载 SJJNetwork 文件夹所有内容并且拖入你的工程中。
+1. 下载 SSJNetWork 文件夹所有内容并且拖入你的工程中。
 
 
 第二种方式：
-pod 'SJJNetwork'
+pod 'SSJNetWork'
 
 请pod导入这些依赖库
 
