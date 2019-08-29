@@ -60,8 +60,9 @@
     return self;
 }
 
-- (void)callNetWorkRequestConfig:(SSJNetworkRequestConfig *)requestConfig completionBlock:(SJJRequestCompletionBlock)completion {
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+- (void)callNetWorkRequestConfig:(SSJNetworkRequestConfig *)requestConfig
+                        progress:(nullable void (^)(NSProgress * _Nonnull))progress completion:(nonnull SJJRequestCompletionBlock)completion {
+    AFHTTPSessionManager *manager = [SSJNetWorkConfig netWorkConfig].sessionManager;
     NSDictionary *params = requestConfig.params;
     NSString *method = requestConfig.method;
     NSString *urlString = requestConfig.urlString;
@@ -73,12 +74,24 @@
             [mutableRequest setValue:value forHTTPHeaderField:field];
         }
     }];
+    
+    __block NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:mutableRequest uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+        if (progress) {
+            progress(uploadProgress);
+        }
+    } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (completion) {
+            [self addCompletionCallback:completion response:response responseObject:responseObject error:error];
+        }
+    }];
 
-    __block NSURLSessionDataTask *dataTask =  [manager dataTaskWithRequest:mutableRequest
-                                                         completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-                                                             [self addCompletionCallback:completion response:response responseObject:responseObject error:error];
-
-                                                         }];
+//    __block NSURLSessionDataTask *dataTask =  [manager dataTaskWithRequest:mutableRequest
+//                                                         completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+//                                                             [self addCompletionCallback:completion response:response responseObject:responseObject error:error];
+//
+//                                                         }];
 
 
 

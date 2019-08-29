@@ -34,7 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)requestManager;
 
-- (void)ssj_networkRequestConfig:(SSJNetworkRequestConfig *)config completionBlock:(SSJRequestingBlock)completion;
+- (void)ssj_callRequestConfig:(SSJNetworkRequestConfig *)config progress:(nullable void (^)(NSProgress * _Nonnull))uploadProgress
+          completionBlock:(nullable SSJRequestingBlock)completion;
 
 @end
 

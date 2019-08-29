@@ -49,9 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *className;
 
 /**
- Ignore Cache
+ isUserCache
  */
-@property (nonatomic, assign) BOOL shouldAllIgnoreCache;
+@property (nonatomic, assign, getter=isUserCache) BOOL useCache;
 
 
 @end

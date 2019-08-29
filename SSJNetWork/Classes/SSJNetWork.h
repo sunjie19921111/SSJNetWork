@@ -13,6 +13,8 @@
 #import "SSJNetWorkConfig.h"
 #import "SSJNetworkRequestConfig.h"
 #import "SSJNetworkingDefines.h"
+#import "SSJLogManager.h"
+#import "NSObject+SSJNetWork.h"
 
 #import "NEHTTPEyeViewController.h"
 #import "NEHTTPEyeDetailViewController.h"

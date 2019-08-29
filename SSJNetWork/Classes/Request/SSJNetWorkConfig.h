@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)netWorkConfig;
 
+
+@property (readwrite,nonatomic, strong) NSString *baseUrl;
+
 /**
  Set the maximum cache limit
  */
@@ -85,9 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
  demo  [SJNetWorkConfig netWorkConfig].sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
  */
 
-@property (readwrite,nonatomic, strong) AFJSONResponseSerializer *responseSerializer;
 @property (readwrite,nonatomic, strong) AFHTTPSessionManager *sessionManager;
-@property (readwrite,nonatomic, strong) NSURLSessionConfiguration *sessionConfiguration;
 
 @end
 

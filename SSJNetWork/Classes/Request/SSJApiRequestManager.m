@@ -84,17 +84,17 @@ typedef void(^SJJCacheQueryCompletedBlock)(id response, NSError *error);
 }
 
 
-- (void)ssj_networkRequestConfig:(SSJNetworkRequestConfig *)config completionBlock:(SSJRequestingBlock)completion {
+- (void)ssj_networkRequestConfig:(SSJNetworkRequestConfig *)config progress:(nullable void (^)(NSProgress * _Nonnull))uploadProgress completionBlock:(SSJRequestingBlock)completion {
     [self queryCacheOperationForConfig:config done:^(id response, NSError *error) {
         if ([response isKindOfClass:[NSDictionary class]] && !error) {
             completion(nil,response);
         } else {
-            [self callRequestConfig:config completionBlock:completion];
+            [self ssj_callRequestConfig:config progress:uploadProgress completionBlock:completion];
         }
     }];
 }
 
-- (void)callRequestConfig:(SSJNetworkRequestConfig *)config
+- (void)ssj_callRequestConfig:(SSJNetworkRequestConfig *)config progress:(nullable void (^)(NSProgress * _Nonnull))uploadProgress
           completionBlock:(nullable SSJRequestingBlock)completion {
 
     if (![SSJNetWorkHelper ssj_isReachable]) {
@@ -105,8 +105,7 @@ typedef void(^SJJCacheQueryCompletedBlock)(id response, NSError *error);
         validationError = SSJErrorWithUnderlyingError([NSError errorWithDomain:SSJRequestCacheErrorDomain code:SSJApiManagerErrorTypeNoNetWork userInfo:mutableUserInfo], validationError);
         completion(validationError,nil); return;
     }
-
-    [[SSJApiProxy sharedInstance] callNetWorkRequestConfig:config completionBlock:^(NSError * _Nullable error, id  _Nonnull responseObject, SSJNetworkRequestConfig * _Nonnull requestConfig) {
+    [[SSJApiProxy sharedInstance] callNetWorkRequestConfig:config progress:uploadProgress completion:^(NSError * _Nullable error, id  _Nonnull responseObject, SSJNetworkRequestConfig * _Nonnull requestConfig) {
         if (completion) {
             completion(error,responseObject);
         }
@@ -189,7 +188,7 @@ typedef void(^SJJCacheQueryCompletedBlock)(id response, NSError *error);
         return validationError;
     }
     
-    if ([_netWorkConfig.cacheTimeInSeconds integerValue] <= 0 || config.shouldAllIgnoreCache) {
+    if ([_netWorkConfig.cacheTimeInSeconds integerValue] <= 0 || !config.useCache) {
         NSMutableDictionary *mutableUserInfo = [@{
                                                   NSLocalizedDescriptionKey: [NSString stringWithFormat:@"failed: cacheTimeInSeconds and IgnoreCache"],
                                                   } mutableCopy];

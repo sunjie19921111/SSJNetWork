@@ -55,8 +55,8 @@
         _SQLLogEnable = YES;
         _dubugLogeEnable = YES;
         
-        _sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        _sessionManager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:self.sessionConfiguration];
+        _sessionManager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*", nil];
     }
     return self;
 }

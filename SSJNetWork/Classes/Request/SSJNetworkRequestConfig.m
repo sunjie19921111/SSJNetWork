@@ -27,7 +27,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _shouldAllIgnoreCache = NO;
+        _useCache = YES;
         _params = [NSMutableDictionary dictionaryWithCapacity:1];
     }
     return self;

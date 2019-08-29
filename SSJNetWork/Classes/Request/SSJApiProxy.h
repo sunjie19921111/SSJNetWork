@@ -32,7 +32,8 @@ typedef void(^SJJRequestCompletionBlock)(NSError * _Nullable error, id _Nonnull 
 @interface SSJApiProxy : NSObject
 
 + (instancetype)sharedInstance;
-- (void)callNetWorkRequestConfig:(SSJNetworkRequestConfig *)requestConfig completionBlock:(SJJRequestCompletionBlock)completion;
+- (void)callNetWorkRequestConfig:(SSJNetworkRequestConfig *)requestConfig
+                        progress:(nullable void (^)(NSProgress * _Nonnull))progress completion:(nonnull SJJRequestCompletionBlock)completion;
 
 
 @end
