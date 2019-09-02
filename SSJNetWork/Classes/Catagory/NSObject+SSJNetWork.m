@@ -122,7 +122,7 @@ _error: {
     config.urlString = [self dealWithURL:config.urlString];
     [[SSJApiRequestManager requestManager] ssj_callRequestConfig:config progress:uploadProgress completionBlock:^(NSError * _Nullable error, id  _Nullable responseObject) {
         if (completion) {
-            completion(error,completion);
+            completion(error,responseObject);
         }
     }];
 
